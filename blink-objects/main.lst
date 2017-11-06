@@ -22,20 +22,9 @@ main:
 	@ args = 0, pretend = 0, frame = 8
 	@ frame_needed = 0, uses_anonymous_args = 0
 	push	{r0, r1, r2, lr}
-	ldr	r2, .L3
-	movs	r1, #2
-	ldr	r3, [r2, #24]
-	mov	r0, sp
-	orr	r3, r3, #16
-	str	r3, [r2, #24]
-	ldr	r3, .L3+4
-	ldr	r2, [r3, #4]
-	bic	r2, r2, #15728640
-	str	r2, [r3, #4]
-	ldr	r2, [r3, #4]
-	orr	r2, r2, #3145728
-	str	r2, [r3, #4]
 	movs	r2, #13
+	movs	r1, #2
+	mov	r0, sp
 	bl	_ZN3pinC1Eii
 .L2:
 	mov	r0, sp
@@ -47,10 +36,5 @@ main:
 	bl	_ZN3pin3setEb
 	bl	_Z4waitv
 	b	.L2
-.L4:
-	.align	2
-.L3:
-	.word	1073876992
-	.word	1073811456
 	.size	main, .-main
 	.ident	"GCC: (GNU) 6.2.0"

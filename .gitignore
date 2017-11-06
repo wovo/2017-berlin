@@ -1,0 +1,12 @@
+.clang
+.codelite
+_codelite.workspace
+.project
+*.o
+*.bin
+*.elf
+*.ld
+*.map
+*.mk
+bmptk_*_stack.c
+bmptk_heap_*.c

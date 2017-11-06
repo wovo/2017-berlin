@@ -9,13 +9,15 @@
 #############################################################################
 
 # source files in this project (main.cpp is automatically assumed)
-SOURCES := 
+SOURCES := wait.cpp
 
 # header files in this project
 HEADERS :=
 
 # other places to look for files for this project
 SEARCH  := 
+
+RESULTS := main.lss main.lst
 
 # set RELATIVE to the next higher directory 
 # and defer to the Makefile.* there
