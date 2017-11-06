@@ -1,0 +1,113 @@
+
+main.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+08000000 <__rom_start>:
+ 8000000:	20001800 	.word	0x20001800
+ 8000004:	080000c5 	.word	0x080000c5
+	...
+
+08000020 <_Z4waitv>:
+ 8000020:	2300      	movs	r3, #0
+ 8000022:	b082      	sub	sp, #8
+ 8000024:	4a05      	ldr	r2, [pc, #20]	; (800003c <_Z4waitv+0x1c>)
+ 8000026:	9301      	str	r3, [sp, #4]
+ 8000028:	9b01      	ldr	r3, [sp, #4]
+ 800002a:	4293      	cmp	r3, r2
+ 800002c:	dc03      	bgt.n	8000036 <_Z4waitv+0x16>
+ 800002e:	9b01      	ldr	r3, [sp, #4]
+ 8000030:	3301      	adds	r3, #1
+ 8000032:	9301      	str	r3, [sp, #4]
+ 8000034:	e7f8      	b.n	8000028 <_Z4waitv+0x8>
+ 8000036:	b002      	add	sp, #8
+ 8000038:	4770      	bx	lr
+ 800003a:	bf00      	nop
+ 800003c:	0001869f 	.word	0x0001869f
+
+08000040 <_ZN3pinC1Eii>:
+ 8000040:	e880 0006 	stmia.w	r0, {r1, r2}
+ 8000044:	4770      	bx	lr
+	...
+
+08000048 <_ZN3pin3setEb>:
+ 8000048:	6802      	ldr	r2, [r0, #0]
+ 800004a:	4b0a      	ldr	r3, [pc, #40]	; (8000074 <_ZN3pin3setEb+0x2c>)
+ 800004c:	b510      	push	{r4, lr}
+ 800004e:	f853 4022 	ldr.w	r4, [r3, r2, lsl #2]
+ 8000052:	6843      	ldr	r3, [r0, #4]
+ 8000054:	425a      	negs	r2, r3
+ 8000056:	f002 020f 	and.w	r2, r2, #15
+ 800005a:	f003 030f 	and.w	r3, r3, #15
+ 800005e:	bf58      	it	pl
+ 8000060:	4253      	negpl	r3, r2
+ 8000062:	2900      	cmp	r1, #0
+ 8000064:	bf14      	ite	ne
+ 8000066:	2200      	movne	r2, #0
+ 8000068:	2210      	moveq	r2, #16
+ 800006a:	441a      	add	r2, r3
+ 800006c:	2301      	movs	r3, #1
+ 800006e:	4093      	lsls	r3, r2
+ 8000070:	6123      	str	r3, [r4, #16]
+ 8000072:	bd10      	pop	{r4, pc}
+ 8000074:	20001800 	.word	0x20001800
+
+08000078 <main>:
+ 8000078:	b507      	push	{r0, r1, r2, lr}
+ 800007a:	4a10      	ldr	r2, [pc, #64]	; (80000bc <main+0x44>)
+ 800007c:	2102      	movs	r1, #2
+ 800007e:	6993      	ldr	r3, [r2, #24]
+ 8000080:	4668      	mov	r0, sp
+ 8000082:	f043 0310 	orr.w	r3, r3, #16
+ 8000086:	6193      	str	r3, [r2, #24]
+ 8000088:	4b0d      	ldr	r3, [pc, #52]	; (80000c0 <main+0x48>)
+ 800008a:	685a      	ldr	r2, [r3, #4]
+ 800008c:	f422 0270 	bic.w	r2, r2, #15728640	; 0xf00000
+ 8000090:	605a      	str	r2, [r3, #4]
+ 8000092:	685a      	ldr	r2, [r3, #4]
+ 8000094:	f442 1240 	orr.w	r2, r2, #3145728	; 0x300000
+ 8000098:	605a      	str	r2, [r3, #4]
+ 800009a:	220d      	movs	r2, #13
+ 800009c:	f7ff ffd0 	bl	8000040 <_ZN3pinC1Eii>
+ 80000a0:	4668      	mov	r0, sp
+ 80000a2:	2101      	movs	r1, #1
+ 80000a4:	f7ff ffd0 	bl	8000048 <_ZN3pin3setEb>
+ 80000a8:	f7ff ffba 	bl	8000020 <_Z4waitv>
+ 80000ac:	2100      	movs	r1, #0
+ 80000ae:	4668      	mov	r0, sp
+ 80000b0:	f7ff ffca 	bl	8000048 <_ZN3pin3setEb>
+ 80000b4:	f7ff ffb4 	bl	8000020 <_Z4waitv>
+ 80000b8:	e7f2      	b.n	80000a0 <main+0x28>
+ 80000ba:	bf00      	nop
+ 80000bc:	40021000 	.word	0x40021000
+ 80000c0:	40011000 	.word	0x40011000
+
+080000c4 <__startup>:
+ 80000c4:	2100      	movs	r1, #0
+ 80000c6:	b508      	push	{r3, lr}
+ 80000c8:	4a0b      	ldr	r2, [pc, #44]	; (80000f8 <__startup+0x34>)
+ 80000ca:	4b0c      	ldr	r3, [pc, #48]	; (80000fc <__startup+0x38>)
+ 80000cc:	4293      	cmp	r3, r2
+ 80000ce:	d10a      	bne.n	80000e6 <__startup+0x22>
+ 80000d0:	2200      	movs	r2, #0
+ 80000d2:	490b      	ldr	r1, [pc, #44]	; (8000100 <__startup+0x3c>)
+ 80000d4:	4b0b      	ldr	r3, [pc, #44]	; (8000104 <__startup+0x40>)
+ 80000d6:	480c      	ldr	r0, [pc, #48]	; (8000108 <__startup+0x44>)
+ 80000d8:	1a5b      	subs	r3, r3, r1
+ 80000da:	089b      	lsrs	r3, r3, #2
+ 80000dc:	429a      	cmp	r2, r3
+ 80000de:	d105      	bne.n	80000ec <__startup+0x28>
+ 80000e0:	f7ff ffca 	bl	8000078 <main>
+ 80000e4:	e7fe      	b.n	80000e4 <__startup+0x20>
+ 80000e6:	f843 1b04 	str.w	r1, [r3], #4
+ 80000ea:	e7ef      	b.n	80000cc <__startup+0x8>
+ 80000ec:	f850 4022 	ldr.w	r4, [r0, r2, lsl #2]
+ 80000f0:	f841 4022 	str.w	r4, [r1, r2, lsl #2]
+ 80000f4:	3201      	adds	r2, #1
+ 80000f6:	e7f1      	b.n	80000dc <__startup+0x18>
+ 80000f8:	20001800 	.word	0x20001800
+ 80000fc:	20001800 	.word	0x20001800
+ 8000100:	20001800 	.word	0x20001800
+ 8000104:	20001810 	.word	0x20001810
+ 8000108:	0800010c 	.word	0x0800010c

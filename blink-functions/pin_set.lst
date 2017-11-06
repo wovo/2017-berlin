@@ -1,0 +1,58 @@
+	.cpu cortex-m3
+	.eabi_attribute 20, 1
+	.eabi_attribute 21, 1
+	.eabi_attribute 23, 3
+	.eabi_attribute 24, 1
+	.eabi_attribute 25, 1
+	.eabi_attribute 26, 1
+	.eabi_attribute 30, 4
+	.eabi_attribute 34, 1
+	.eabi_attribute 18, 4
+	.file	"pin_set.cpp"
+	.section	.text._Z7pin_setib,"ax",%progbits
+	.align	1
+	.global	_Z7pin_setib
+	.syntax unified
+	.thumb
+	.thumb_func
+	.fpu softvfp
+	.type	_Z7pin_setib, %function
+_Z7pin_setib:
+	@ args = 0, pretend = 0, frame = 0
+	@ frame_needed = 0, uses_anonymous_args = 0
+	@ link register save eliminated.
+	movs	r3, #32
+	sdiv	r3, r0, r3
+	ldr	r2, .L4
+	ldr	r2, [r2, r3, lsl #2]
+	rsbs	r3, r0, #0
+	and	r3, r3, #15
+	and	r0, r0, #15
+	it	pl
+	rsbpl	r0, r3, #0
+	cmp	r1, #0
+	ite	ne
+	movne	r3, #0
+	moveq	r3, #16
+	add	r3, r3, r0
+	movs	r0, #1
+	lsls	r0, r0, r3
+	str	r0, [r2, #16]
+	bx	lr
+.L5:
+	.align	2
+.L4:
+	.word	.LANCHOR0
+	.size	_Z7pin_setib, .-_Z7pin_setib
+	.global	port_registers
+	.section	.data.port_registers,"aw",%progbits
+	.align	2
+	.set	.LANCHOR0,. + 0
+	.type	port_registers, %object
+	.size	port_registers, 16
+port_registers:
+	.word	1073809408
+	.word	1073810432
+	.word	1073811456
+	.word	1073812480
+	.ident	"GCC: (GNU) 6.2.0"
