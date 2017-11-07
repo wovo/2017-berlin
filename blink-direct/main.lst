@@ -21,6 +21,8 @@ main:
 	@ Volatile: function does not return.
 	@ args = 0, pretend = 0, frame = 0
 	@ frame_needed = 0, uses_anonymous_args = 0
+	mov	r6, #8192
+	mov	r5, #536870912
 	ldr	r2, .L3
 	push	{r3, lr}
 	ldr	r3, [r2, #24]
@@ -34,13 +36,9 @@ main:
 	orr	r2, r2, #3145728
 	str	r2, [r4, #4]
 .L2:
-	ldr	r3, [r4, #16]
-	orr	r3, r3, #8192
-	str	r3, [r4, #16]
+	str	r6, [r4, #16]
 	bl	_Z4waitv
-	ldr	r3, [r4, #16]
-	orr	r3, r3, #536870912
-	str	r3, [r4, #16]
+	str	r5, [r4, #16]
 	bl	_Z4waitv
 	b	.L2
 .L4:

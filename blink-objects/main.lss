@@ -6,7 +6,7 @@ Disassembly of section .text:
 
 08000000 <__rom_start>:
  8000000:	20001800 	.word	0x20001800
- 8000004:	080000c5 	.word	0x080000c5
+ 8000004:	080000a1 	.word	0x080000a1
 	...
 
 08000020 <_Z4waitv>:
@@ -55,59 +55,46 @@ Disassembly of section .text:
 
 08000078 <main>:
  8000078:	b507      	push	{r0, r1, r2, lr}
- 800007a:	4a10      	ldr	r2, [pc, #64]	; (80000bc <main+0x44>)
+ 800007a:	220d      	movs	r2, #13
  800007c:	2102      	movs	r1, #2
- 800007e:	6993      	ldr	r3, [r2, #24]
- 8000080:	4668      	mov	r0, sp
- 8000082:	f043 0310 	orr.w	r3, r3, #16
- 8000086:	6193      	str	r3, [r2, #24]
- 8000088:	4b0d      	ldr	r3, [pc, #52]	; (80000c0 <main+0x48>)
- 800008a:	685a      	ldr	r2, [r3, #4]
- 800008c:	f422 0270 	bic.w	r2, r2, #15728640	; 0xf00000
- 8000090:	605a      	str	r2, [r3, #4]
- 8000092:	685a      	ldr	r2, [r3, #4]
- 8000094:	f442 1240 	orr.w	r2, r2, #3145728	; 0x300000
- 8000098:	605a      	str	r2, [r3, #4]
- 800009a:	220d      	movs	r2, #13
- 800009c:	f7ff ffd0 	bl	8000040 <_ZN3pinC1Eii>
- 80000a0:	4668      	mov	r0, sp
- 80000a2:	2101      	movs	r1, #1
- 80000a4:	f7ff ffd0 	bl	8000048 <_ZN3pin3setEb>
- 80000a8:	f7ff ffba 	bl	8000020 <_Z4waitv>
- 80000ac:	2100      	movs	r1, #0
- 80000ae:	4668      	mov	r0, sp
- 80000b0:	f7ff ffca 	bl	8000048 <_ZN3pin3setEb>
- 80000b4:	f7ff ffb4 	bl	8000020 <_Z4waitv>
- 80000b8:	e7f2      	b.n	80000a0 <main+0x28>
- 80000ba:	bf00      	nop
- 80000bc:	40021000 	.word	0x40021000
- 80000c0:	40011000 	.word	0x40011000
+ 800007e:	4668      	mov	r0, sp
+ 8000080:	f7ff ffde 	bl	8000040 <_ZN3pinC1Eii>
+ 8000084:	4668      	mov	r0, sp
+ 8000086:	2101      	movs	r1, #1
+ 8000088:	f7ff ffde 	bl	8000048 <_ZN3pin3setEb>
+ 800008c:	f7ff ffc8 	bl	8000020 <_Z4waitv>
+ 8000090:	2100      	movs	r1, #0
+ 8000092:	4668      	mov	r0, sp
+ 8000094:	f7ff ffd8 	bl	8000048 <_ZN3pin3setEb>
+ 8000098:	f7ff ffc2 	bl	8000020 <_Z4waitv>
+ 800009c:	e7f2      	b.n	8000084 <main+0xc>
+	...
 
-080000c4 <__startup>:
- 80000c4:	2100      	movs	r1, #0
- 80000c6:	b508      	push	{r3, lr}
- 80000c8:	4a0b      	ldr	r2, [pc, #44]	; (80000f8 <__startup+0x34>)
- 80000ca:	4b0c      	ldr	r3, [pc, #48]	; (80000fc <__startup+0x38>)
- 80000cc:	4293      	cmp	r3, r2
- 80000ce:	d10a      	bne.n	80000e6 <__startup+0x22>
- 80000d0:	2200      	movs	r2, #0
- 80000d2:	490b      	ldr	r1, [pc, #44]	; (8000100 <__startup+0x3c>)
- 80000d4:	4b0b      	ldr	r3, [pc, #44]	; (8000104 <__startup+0x40>)
- 80000d6:	480c      	ldr	r0, [pc, #48]	; (8000108 <__startup+0x44>)
- 80000d8:	1a5b      	subs	r3, r3, r1
- 80000da:	089b      	lsrs	r3, r3, #2
- 80000dc:	429a      	cmp	r2, r3
- 80000de:	d105      	bne.n	80000ec <__startup+0x28>
- 80000e0:	f7ff ffca 	bl	8000078 <main>
- 80000e4:	e7fe      	b.n	80000e4 <__startup+0x20>
- 80000e6:	f843 1b04 	str.w	r1, [r3], #4
- 80000ea:	e7ef      	b.n	80000cc <__startup+0x8>
- 80000ec:	f850 4022 	ldr.w	r4, [r0, r2, lsl #2]
- 80000f0:	f841 4022 	str.w	r4, [r1, r2, lsl #2]
- 80000f4:	3201      	adds	r2, #1
- 80000f6:	e7f1      	b.n	80000dc <__startup+0x18>
- 80000f8:	20001800 	.word	0x20001800
- 80000fc:	20001800 	.word	0x20001800
- 8000100:	20001800 	.word	0x20001800
- 8000104:	20001810 	.word	0x20001810
- 8000108:	0800010c 	.word	0x0800010c
+080000a0 <__startup>:
+ 80000a0:	2100      	movs	r1, #0
+ 80000a2:	b508      	push	{r3, lr}
+ 80000a4:	4a0b      	ldr	r2, [pc, #44]	; (80000d4 <__startup+0x34>)
+ 80000a6:	4b0c      	ldr	r3, [pc, #48]	; (80000d8 <__startup+0x38>)
+ 80000a8:	4293      	cmp	r3, r2
+ 80000aa:	d10a      	bne.n	80000c2 <__startup+0x22>
+ 80000ac:	2200      	movs	r2, #0
+ 80000ae:	490b      	ldr	r1, [pc, #44]	; (80000dc <__startup+0x3c>)
+ 80000b0:	4b0b      	ldr	r3, [pc, #44]	; (80000e0 <__startup+0x40>)
+ 80000b2:	480c      	ldr	r0, [pc, #48]	; (80000e4 <__startup+0x44>)
+ 80000b4:	1a5b      	subs	r3, r3, r1
+ 80000b6:	089b      	lsrs	r3, r3, #2
+ 80000b8:	429a      	cmp	r2, r3
+ 80000ba:	d105      	bne.n	80000c8 <__startup+0x28>
+ 80000bc:	f7ff ffdc 	bl	8000078 <main>
+ 80000c0:	e7fe      	b.n	80000c0 <__startup+0x20>
+ 80000c2:	f843 1b04 	str.w	r1, [r3], #4
+ 80000c6:	e7ef      	b.n	80000a8 <__startup+0x8>
+ 80000c8:	f850 4022 	ldr.w	r4, [r0, r2, lsl #2]
+ 80000cc:	f841 4022 	str.w	r4, [r1, r2, lsl #2]
+ 80000d0:	3201      	adds	r2, #1
+ 80000d2:	e7f1      	b.n	80000b8 <__startup+0x18>
+ 80000d4:	20001800 	.word	0x20001800
+ 80000d8:	20001800 	.word	0x20001800
+ 80000dc:	20001800 	.word	0x20001800
+ 80000e0:	20001810 	.word	0x20001810
+ 80000e4:	080000e8 	.word	0x080000e8

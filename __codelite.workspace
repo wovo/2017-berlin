@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CodeLite_Workspace Name="example code" Database="" Version="10.0.0">
-  <Project Name="blink-defines" Path="blink-defines/_codelite.project" Active="No"/>
+<CodeLite_Workspace Name="example code" Database="">
+  <Project Name="blink-direct" Path="blink-direct/_codelite.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Release" Selected="yes">
-      <Project Name="blink-defines" ConfigName="Release"/>
+      <Project Name="blink-direct" ConfigName="Release"/>
     </WorkspaceConfiguration>
-  </BuildMatrix>
+  </BuildMatrix> 
   <Project Name="blink-functions" Path="blink-functions/_codelite.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Project Name="blink-functions" ConfigName="Release"/>
     </WorkspaceConfiguration>
-  </BuildMatrix>
+  </BuildMatrix> 
   <Project Name="blink-functions-lto" Path="blink-functions-lto/_codelite.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Project Name="blink-functions-lto" ConfigName="Release"/>
     </WorkspaceConfiguration>
-  </BuildMatrix>
-  <Project Name="blink-objects" Path="blink-objects/_codelite.project" Active="Yes"/>
+  </BuildMatrix> 
+  <Project Name="blink-objects" Path="blink-objects/_codelite.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Project Name="blink-objects" ConfigName="Release"/>
     </WorkspaceConfiguration>
-  </BuildMatrix>
+  </BuildMatrix> 
   <Project Name="blink-objects-lto" Path="blink-objects-lto/_codelite.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Project Name="blink-objects-lto" ConfigName="Release"/>
     </WorkspaceConfiguration>
-  </BuildMatrix>
+  </BuildMatrix> 
   <Project Name="blink-objects-visible" Path="blink-objects-visible/_codelite.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Project Name="blink-objects-visible" ConfigName="Release"/>
     </WorkspaceConfiguration>
-  </BuildMatrix>
+  </BuildMatrix> 
   <Project Name="blink-templates" Path="blink-templates/_codelite.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Project Name="blink-templates" ConfigName="Release"/>
     </WorkspaceConfiguration>
-  </BuildMatrix>
+  </BuildMatrix> 
 </CodeLite_Workspace>
