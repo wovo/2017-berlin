@@ -4,6 +4,7 @@ _codelite.workspace
 .project
 *.o
 *.bin
+*.hex
 *.elf
 *.ld
 *.map
